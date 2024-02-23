@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     flex: 1,
+    gap: 10,
     padding: 10,
   },
   image: {
