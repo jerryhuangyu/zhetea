@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import SelectorBtn from "@/src/components/selector/SelectorBtn";
+import SelectorBtn from "@/src/components/button/SelectorBtn";
 import Default from "@/constants/Default";
 import { Amount } from "@/types";
 
