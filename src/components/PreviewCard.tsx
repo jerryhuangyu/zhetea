@@ -1,5 +1,6 @@
 import Colors from "@/constants/Colors";
 import { Product } from "@/types";
+import { Link, useSegments } from "expo-router";
 import { Text, StyleSheet, Pressable, Image } from "react-native";
 
 type PreviewCardProps = {
@@ -7,8 +8,9 @@ type PreviewCardProps = {
 };
 
 const PreviewCard = ({ product }: PreviewCardProps) => {
+  const segments = useSegments();
   return (
-    <>
+    <Link href={`/${segments[0]}/menu/${product.id}`} asChild>
       <Pressable style={styles.container}>
         <Image
           source={{ uri: product.image }}
@@ -18,7 +20,7 @@ const PreviewCard = ({ product }: PreviewCardProps) => {
         <Text style={styles.title}>{product.name}</Text>
         <Text style={styles.price}>${product.price}</Text>
       </Pressable>
-    </>
+    </Link>
   );
 };
 export default PreviewCard;
