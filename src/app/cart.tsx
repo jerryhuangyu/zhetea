@@ -1,20 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet } from "react-native";
+import { FlatList, Platform, StyleSheet } from "react-native";
 
-import EditScreenInfo from "@/src/components/EditScreenInfo";
 import { Text, View } from "@/src/components/Themed";
+import { useCart } from "@/providers/CartProvider";
+import BasicBtn from "@/src/components/button/BasicBtn";
 
 export default function CartScreen() {
+  const { items, total } = useCart();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Cart</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
+      <FlatList
+        data={items}
+        renderItem={({ item }) => <Text>{item.product.name}</Text>}
       />
-      <EditScreenInfo path="app/modal.tsx" />
-
+      {items.length > 0 && <Text style={styles.total}>Total: ${total}</Text>}
+      {items.length > 0 && <BasicBtn text="Checkout" />}
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
@@ -23,17 +23,16 @@ export default function CartScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 10,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+  total: {
+    marginTop: 20,
+    marginRight: 10,
+    fontSize: 18,
+    fontWeight: "500",
+    textAlign: "right",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  cartLists: {
+    gap: 10,
   },
 });
