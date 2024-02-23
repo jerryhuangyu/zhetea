@@ -1,5 +1,5 @@
-import CartBtn from "@/src/components/CartBtn";
 import { Stack } from "expo-router";
+import CartBtn from "@/src/components/button/CartBtn";
 
 const OrderLayout = () => {
   return (
