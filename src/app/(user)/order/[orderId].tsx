@@ -1,5 +1,6 @@
 import orders from "@/assets/data/orders";
 import { OrderDisplayCard } from "@/src/components/OrderCard";
+import OrderDetailCard from "@/src/components/OrderDetailCard";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
@@ -17,7 +18,7 @@ const OrderDetailScreen = () => {
       <OrderDisplayCard order={order} />
       <FlatList
         data={order.order_items}
-        renderItem={({ item }) => <Text>{item.products.name}</Text>}
+        renderItem={({ item }) => <OrderDetailCard item={item} />}
         contentContainerStyle={{ gap: 10 }}
       />
     </View>
