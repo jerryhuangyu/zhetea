@@ -6,6 +6,16 @@ import { Order } from "@/types";
 
 dayjs.extend(relativeTime);
 
+export const OrderDisplayCard = ({ order }: { order: Order }) => (
+  <View style={styles.container}>
+    <View>
+      <Text style={styles.title}>Order #{order.id}</Text>
+      <Text style={styles.time}>{dayjs().to(dayjs(order.created_at))}</Text>
+    </View>
+    <Text style={styles.status}>{order.status}</Text>
+  </View>
+);
+
 type OrderCardProps = {
   order: Order;
   path: string;
@@ -14,16 +24,13 @@ type OrderCardProps = {
 const OrderCard = ({ order, path }: OrderCardProps) => {
   return (
     <Link href={path as Href<string>} asChild>
-      <Pressable style={styles.container}>
-        <View>
-          <Text style={styles.title}>Order #{order.id}</Text>
-          <Text style={styles.time}>{dayjs().to(dayjs(order.created_at))}</Text>
-        </View>
-        <Text style={styles.status}>{order.status}</Text>
+      <Pressable>
+        <OrderDisplayCard order={order} />
       </Pressable>
     </Link>
   );
 };
+
 export default OrderCard;
 
 const styles = StyleSheet.create({
