@@ -7,6 +7,7 @@ import AmountSelector from "@/src/components/selector/AmountSelector";
 import BasicBtn from "@/src/components/button/BasicBtn";
 import { teaProducts } from "@/assets/data";
 import { Amount } from "@/types";
+import Colors from "@/constants/Colors";
 
 const DetailPage = () => {
   const { productId } = useLocalSearchParams();
@@ -31,7 +32,13 @@ const DetailPage = () => {
 
   return (
     <>
-      <Stack.Screen options={{ title: product.name }} />
+      <Stack.Screen
+        options={{
+          title: product.name,
+          headerTintColor: Colors.light.tint,
+          headerTitleStyle: { color: "black" },
+        }}
+      />
       <ScrollView>
         <View style={styles.scrollview}>
           <Image source={{ uri: product.image }} style={styles.image} />

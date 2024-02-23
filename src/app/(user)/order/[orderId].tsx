@@ -1,8 +1,9 @@
-import orders from "@/assets/data/orders";
-import { OrderDisplayCard } from "@/src/components/OrderCard";
-import OrderDetailCard from "@/src/components/OrderDetailCard";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import { OrderDisplayCard } from "@/src/components/OrderCard";
+import OrderDetailCard from "@/src/components/OrderDetailCard";
+import orders from "@/assets/data/orders";
+import Colors from "@/constants/Colors";
 
 const OrderDetailScreen = () => {
   const { orderId } = useLocalSearchParams();
@@ -14,7 +15,13 @@ const OrderDetailScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: `Order #${orderId}` }} />
+      <Stack.Screen
+        options={{
+          title: `Order #${orderId}`,
+          headerTintColor: Colors.light.tint,
+          headerTitleStyle: { color: "black" },
+        }}
+      />
       <OrderDisplayCard order={order} highlight />
       <FlatList
         data={order.order_items}
