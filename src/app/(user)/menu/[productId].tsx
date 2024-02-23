@@ -1,10 +1,14 @@
-import { teaProducts } from "@/assets/data";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { Image, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import AmountSelector from "@/src/components/selector/AmountSelector";
+import { teaProducts } from "@/assets/data";
+import { Amount } from "@/types";
 
 const DetailPage = () => {
   const { productId } = useLocalSearchParams();
   const product = teaProducts.find((p) => p.id.toString() === productId);
+  const [selected, setSelected] = useState<Amount>("四兩");
 
   if (!product) {
     return (
@@ -19,7 +23,7 @@ const DetailPage = () => {
     <View style={styles.container}>
       <Stack.Screen options={{ title: product.name }} />
       <Image source={{ uri: product.image }} style={styles.image} />
-      <Text>Select size</Text>
+      <AmountSelector selected={selected} setSelected={setSelected} />
 
       <Text style={styles.price}>${product.price}</Text>
     </View>
