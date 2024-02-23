@@ -1,6 +1,8 @@
-import { Stack, useLocalSearchParams } from "expo-router";
+import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { Image, StyleSheet, Text, View, ScrollView } from "react-native";
 import { useState } from "react";
+
+import { useCart } from "@/providers/CartProvider";
 import AmountSelector from "@/src/components/selector/AmountSelector";
 import BasicBtn from "@/src/components/button/BasicBtn";
 import { teaProducts } from "@/assets/data";
@@ -8,8 +10,15 @@ import { Amount } from "@/types";
 
 const DetailPage = () => {
   const { productId } = useLocalSearchParams();
+  const router = useRouter();
+  const { addOrUpdateItem } = useCart();
   const product = teaProducts.find((p) => p.id.toString() === productId);
   const [selected, setSelected] = useState<Amount>("四兩");
+  const addToCart = () => {
+    if (!product) return;
+    addOrUpdateItem(product, selected);
+    router.push("/cart");
+  };
 
   if (!product) {
     return (
@@ -32,13 +41,14 @@ const DetailPage = () => {
         </View>
       </ScrollView>
       <View style={styles.btnDiv}>
-        <BasicBtn text="Add to cart" />
+        <BasicBtn text="Add to cart" onPress={addToCart} />
       </View>
     </>
   );
 };
 
 export default DetailPage;
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
