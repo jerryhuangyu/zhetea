@@ -4,6 +4,7 @@ import { FlatList, Platform, StyleSheet } from "react-native";
 import { Text, View } from "@/src/components/Themed";
 import { useCart } from "@/providers/CartProvider";
 import BasicBtn from "@/src/components/button/BasicBtn";
+import CartCard from "../components/CartCard";
 
 export default function CartScreen() {
   const { items, total } = useCart();
@@ -11,7 +12,7 @@ export default function CartScreen() {
     <View style={styles.container}>
       <FlatList
         data={items}
-        renderItem={({ item }) => <Text>{item.product.name}</Text>}
+        renderItem={({ item }) => <CartCard item={item} />}
       />
       {items.length > 0 && <Text style={styles.total}>Total: ${total}</Text>}
       {items.length > 0 && <BasicBtn text="Checkout" />}
@@ -24,6 +25,7 @@ export default function CartScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    gap: 5,
   },
   total: {
     marginTop: 20,
