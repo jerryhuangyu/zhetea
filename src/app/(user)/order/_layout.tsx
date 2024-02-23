@@ -1,13 +1,7 @@
 import { Stack } from "expo-router";
 
 const OrderLayout = () => {
-  return (
-    <Stack
-      screenOptions={{
-        title: "Orders",
-      }}
-    />
-  );
+  return <Stack />;
 };
 
 export default OrderLayout;
