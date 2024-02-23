@@ -1,14 +1,18 @@
 import orders from "@/assets/data/orders";
-import { Stack } from "expo-router";
-import { FlatList, Text } from "react-native";
+import OrderCard from "@/src/components/OrderCard";
+import { Stack, useSegments } from "expo-router";
+import { FlatList } from "react-native";
 
 export default function OrdersScreen() {
+  const [firstSegment] = useSegments();
   return (
     <>
       <Stack.Screen options={{ title: "Orders" }} />
       <FlatList
         data={orders}
-        renderItem={({ item }) => <Text>hi</Text>}
+        renderItem={({ item }) => (
+          <OrderCard order={item} path={`/${firstSegment}/order/${item.id}`} />
+        )}
         contentContainerStyle={{ margin: 10, gap: 10 }}
       />
     </>
