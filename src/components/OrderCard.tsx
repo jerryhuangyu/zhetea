@@ -3,18 +3,27 @@ import { Href, Link } from "expo-router";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Order } from "@/types";
+import Colors from "@/constants/Colors";
 
 dayjs.extend(relativeTime);
 
-export const OrderDisplayCard = ({ order }: { order: Order }) => (
-  <View style={styles.container}>
-    <View>
-      <Text style={styles.title}>Order #{order.id}</Text>
-      <Text style={styles.time}>{dayjs().to(dayjs(order.created_at))}</Text>
+type OrderDisplayCardProps = { order: Order; highlight?: boolean };
+
+export const OrderDisplayCard = ({
+  order,
+  highlight,
+}: OrderDisplayCardProps) => {
+  const highlightStyle = highlight ? styles.hightlight : null;
+  return (
+    <View style={{ ...styles.container, ...highlightStyle }}>
+      <View>
+        <Text style={styles.title}>Order #{order.id}</Text>
+        <Text style={styles.time}>{dayjs().to(dayjs(order.created_at))}</Text>
+      </View>
+      <Text style={styles.status}>{order.status}</Text>
     </View>
-    <Text style={styles.status}>{order.status}</Text>
-  </View>
-);
+  );
+};
 
 type OrderCardProps = {
   order: Order;
@@ -41,6 +50,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
     padding: 10,
+  },
+  hightlight: {
+    borderColor: Colors.light.tint,
+    borderWidth: 1,
   },
   title: {
     fontWeight: "700",

@@ -15,7 +15,7 @@ const OrderDetailScreen = () => {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ title: `Order #${orderId}` }} />
-      <OrderDisplayCard order={order} />
+      <OrderDisplayCard order={order} highlight />
       <FlatList
         data={order.order_items}
         renderItem={({ item }) => <OrderDetailCard item={item} />}
