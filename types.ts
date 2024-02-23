@@ -6,3 +6,11 @@ export type Product = {
 };
 
 export type Amount = "二兩" | "四兩" | "半斤" | "一斤";
+
+export type CartItem = {
+  id: string;
+  product: Product;
+  product_id: number;
+  amount: Amount;
+  quantity: number;
+};
