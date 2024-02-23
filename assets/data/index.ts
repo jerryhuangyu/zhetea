@@ -1,4 +1,4 @@
-export const teaProduct = [
+export const teaProducts = [
   {
     id: 1,
     name: "綠茶",

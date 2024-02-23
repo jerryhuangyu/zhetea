@@ -1,12 +1,12 @@
 import { FlatList } from "react-native";
 import PreviewCard from "@/src/components/PreviewCard";
-import { teaProduct } from "@/assets/data";
+import { teaProducts } from "@/assets/data";
 
 export default function MenuScreen() {
   return (
     <>
       <FlatList
-        data={teaProduct}
+        data={teaProducts}
         renderItem={({ item }) => <PreviewCard product={item} />}
         numColumns={2}
         contentContainerStyle={{ gap: 10, padding: 10 }}
