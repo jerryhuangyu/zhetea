@@ -10,6 +10,7 @@ import Default from "@/constants/Default";
 const CreateScreen = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
   const [errors, setErrors] = useState("");
   const [image, setImage] = useState<string | null>(null);
   const { id } = useLocalSearchParams();
@@ -106,6 +107,14 @@ const CreateScreen = () => {
         value={price}
         keyboardType="numeric"
         onChangeText={setPrice}
+      />
+      <InputField
+        label="Product Description"
+        placeholder="(產品描述)"
+        value={description}
+        keyboardType="default"
+        onChangeText={setDescription}
+        multiline
       />
       <BasicBtn text={isUpdating ? "Update" : "Create"} onPress={onSubmit} />
       {isUpdating && (
