@@ -13,6 +13,7 @@ type InputFieldProps = {
   keyboardType: KeyboardTypeOptions;
   onChangeText: React.Dispatch<React.SetStateAction<string>>;
   secureTextEntry?: boolean;
+  multiline?: boolean;
 };
 
 const InputField = ({
@@ -22,6 +23,7 @@ const InputField = ({
   keyboardType,
   onChangeText,
   secureTextEntry,
+  multiline,
 }: InputFieldProps) => {
   return (
     <View>
@@ -33,6 +35,7 @@ const InputField = ({
         keyboardType={keyboardType}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
+        multiline={multiline}
       />
     </View>
   );
@@ -49,5 +52,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 10,
     borderRadius: 5,
+    maxHeight: 100,
   },
 });
