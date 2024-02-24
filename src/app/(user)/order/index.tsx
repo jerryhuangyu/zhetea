@@ -1,5 +1,5 @@
 import orders from "@/assets/data/orders";
-import OrderCard from "@/src/components/OrderCard";
+import OrderCard from "@/src/components/card/OrderCard";
 import { Stack, useSegments } from "expo-router";
 import { FlatList } from "react-native";
 

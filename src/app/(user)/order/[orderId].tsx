@@ -1,7 +1,7 @@
 import { Stack, useLocalSearchParams } from "expo-router";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { OrderDisplayCard } from "@/src/components/OrderCard";
-import OrderDetailCard from "@/src/components/OrderDetailCard";
+import { OrderDisplayCard } from "@/src/components/card/OrderCard";
+import OrderDetailCard from "@/src/components/card/OrderDetailCard";
 import orders from "@/assets/data/orders";
 import Colors from "@/constants/Colors";
 

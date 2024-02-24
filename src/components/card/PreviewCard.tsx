@@ -1,6 +1,6 @@
 import Colors from "@/constants/Colors";
 import { Product } from "@/types";
-import { Link, useSegments } from "expo-router";
+import { Href, Link, useSegments } from "expo-router";
 import { Text, StyleSheet, Pressable, Image } from "react-native";
 
 type PreviewCardProps = {
@@ -10,7 +10,7 @@ type PreviewCardProps = {
 const PreviewCard = ({ product }: PreviewCardProps) => {
   const segments = useSegments();
   return (
-    <Link href={`/${segments[0]}/menu/${product.id}`} asChild>
+    <Link href={`/${segments[0]}/menu/${product.id}` as Href<string>} asChild>
       <Pressable style={styles.container}>
         <Image
           source={{ uri: product.image }}

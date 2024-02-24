@@ -1,5 +1,5 @@
 import { FlatList } from "react-native";
-import PreviewCard from "@/src/components/PreviewCard";
+import PreviewCard from "@/src/components/card/PreviewCard";
 import { teaProducts } from "@/assets/data";
 
 export default function MenuScreen() {

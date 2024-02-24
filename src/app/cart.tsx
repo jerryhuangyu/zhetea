@@ -4,7 +4,7 @@ import { FlatList, Platform, StyleSheet } from "react-native";
 import { Text, View } from "@/src/components/Themed";
 import { useCart } from "@/providers/CartProvider";
 import BasicBtn from "@/src/components/button/BasicBtn";
-import CartCard from "../components/CartCard";
+import CartCard from "@/src/components/card/CartCard";
 
 export default function CartScreen() {
   const { items, total } = useCart();
