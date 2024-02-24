@@ -12,7 +12,7 @@ type AmountSelectorProps = {
 const AmountSelector = ({ selected, setSelected }: AmountSelectorProps) => {
   return (
     <View>
-      <Text style={styles.title}>Select size</Text>
+      <Text style={styles.title}>選擇數量：二兩(75g)</Text>
       <View style={styles.container}>
         {Default.Amounts.map((amount) => (
           <SelectorBtn
@@ -30,7 +30,7 @@ export default AmountSelector;
 
 const styles = StyleSheet.create({
   title: {
-    fontWeight: "700",
+    fontWeight: "500",
   },
   container: {
     flexDirection: "row",
