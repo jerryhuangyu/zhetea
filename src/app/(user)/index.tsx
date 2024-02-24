@@ -1,6 +1,6 @@
 import { Redirect } from "expo-router";
 
-const TabIndex = () => {
+const UserScreen = () => {
   return <Redirect href={"/(user)/menu/"} />;
 };
-export default TabIndex;
+export default UserScreen;
