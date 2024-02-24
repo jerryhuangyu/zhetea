@@ -1,4 +1,6 @@
-export const teaProducts = [
+import { Product } from "@/types";
+
+export const teaProducts: Product[] = [
   {
     id: 1,
     name: "綠茶",

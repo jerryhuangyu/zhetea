@@ -3,6 +3,7 @@ export type Product = {
   name: string;
   image: string;
   price: number;
+  description: string;
 };
 
 export type Amount = "二兩" | "四兩" | "半斤" | "一斤";
