@@ -11,7 +11,6 @@ const StatusSelector = ({ order }: StatusSelectorProps) => {
   return (
     <>
       <Text style={styles.title}>Status</Text>
-      {/* need scrollable? */}
       <View style={styles.container}>
         {Default.Statuses.map((status) => (
           <SelectorBtn
