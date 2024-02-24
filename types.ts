@@ -16,7 +16,7 @@ export type CartItem = {
   quantity: number;
 };
 
-export type OrderStatus = "New" | "Cooking" | "Delivering" | "Delivered";
+export type OrderStatus = "New" | "Preparing" | "Delivering" | "Delivered";
 
 export type Order = {
   id: number;
