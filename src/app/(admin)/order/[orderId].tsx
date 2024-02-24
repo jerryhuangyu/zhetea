@@ -30,6 +30,7 @@ const OrderDetailScreen = () => {
         contentContainerStyle={{ gap: 10 }}
         ListFooterComponentStyle={{ paddingTop: 5 }}
         ListFooterComponent={() => <StatusSelector order={order} />}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
