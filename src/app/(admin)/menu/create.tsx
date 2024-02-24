@@ -1,11 +1,12 @@
 import { Stack, useLocalSearchParams } from "expo-router";
 import { Alert, Image, StyleSheet, Text, View } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 import InputField from "@/src/components/InputField";
 import BasicBtn from "@/src/components/button/BasicBtn";
 import Colors from "@/constants/Colors";
 import Default from "@/constants/Default";
+import { teaProducts } from "@/assets/data";
 
 const CreateScreen = () => {
   const [name, setName] = useState("");
@@ -80,6 +81,16 @@ const CreateScreen = () => {
       { text: "Delete", style: "destructive", onPress: onDelete },
     ]);
   };
+
+  useEffect(() => {
+    const product = teaProducts.find((p) => p.id.toString() === id);
+    if (product) {
+      setName(product.name);
+      setPrice(product.price.toString());
+      setImage(product.image);
+      setDescription(product.description);
+    }
+  }, [id]);
 
   return (
     <View style={styles.container}>
